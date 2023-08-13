@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Marks Calculator</title>
+</head>
+<body>
+  <h1>Marks Calculator</h1>
+
+  <script>
+    const num = parseInt(prompt("Total Marks: "));
+    let shouldContinue = true;
+    const pass_at = (num / 3).toFixed(2);
+
+    while (shouldContinue) {
+      const a = parseInt(prompt(`Marks Obtained out of ${num}\n\n Pass at ${pass_at}: `));
+      const p = (a / num) * 100;
+      const percentage = p.toFixed(2);
+
+      if (p > 100) {
+        alert("Percentage cannot be more than 100%. Exiting the program.");
+        shouldContinue = false;
+      } else {
+        const confirmation = confirm(`${percentage}%\n\nDo you want to continue?`);
+
+        if (confirmation) {
+          // Display the exact percentage on the screen
+          const resultElement = document.createElement("p");
+          resultElement.textContent = `${p.toFixed(2)}%`;
+          document.body.appendChild(resultElement);
+        } else {
+          shouldContinue = false;
+        }
+      }
+    }
+  </script>
+</body>
+</html>
